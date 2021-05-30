@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/Backtracking.cpp
+stdio.h
+-
+iostream
+-
+Backtracking.h
+/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/Backtracking.h
+
+/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/Backtracking.h
+
+/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/main.cpp
+iostream
+-
+Backtracking.h
+/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/Backtracking.h
+
