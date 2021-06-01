@@ -67,10 +67,10 @@ RM = /snap/clion/152/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking
+CMAKE_SOURCE_DIR = "/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/cmake-build-debug/CMakeFiles /home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug/CMakeFiles" "/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/Backtracking/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -130,44 +130,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Backtracking
+# Target rules for targets named PathfindingA_
 
 # Build rule for target.
-Backtracking: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Backtracking
-.PHONY : Backtracking
+PathfindingA_: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PathfindingA_
+.PHONY : PathfindingA_
 
 # fast build rule for target.
-Backtracking/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/build
-.PHONY : Backtracking/fast
+PathfindingA_/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/build
+.PHONY : PathfindingA_/fast
 
-Backtracking.o: Backtracking.cpp.o
+PathfindingAStar.o: PathfindingAStar.cpp.o
 
-.PHONY : Backtracking.o
+.PHONY : PathfindingAStar.o
 
 # target to build an object file
-Backtracking.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/Backtracking.cpp.o
-.PHONY : Backtracking.cpp.o
+PathfindingAStar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/PathfindingAStar.cpp.o
+.PHONY : PathfindingAStar.cpp.o
 
-Backtracking.i: Backtracking.cpp.i
+PathfindingAStar.i: PathfindingAStar.cpp.i
 
-.PHONY : Backtracking.i
+.PHONY : PathfindingAStar.i
 
 # target to preprocess a source file
-Backtracking.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/Backtracking.cpp.i
-.PHONY : Backtracking.cpp.i
+PathfindingAStar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/PathfindingAStar.cpp.i
+.PHONY : PathfindingAStar.cpp.i
 
-Backtracking.s: Backtracking.cpp.s
+PathfindingAStar.s: PathfindingAStar.cpp.s
 
-.PHONY : Backtracking.s
+.PHONY : PathfindingAStar.s
 
 # target to generate assembly for a file
-Backtracking.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/Backtracking.cpp.s
-.PHONY : Backtracking.cpp.s
+PathfindingAStar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/PathfindingAStar.cpp.s
+.PHONY : PathfindingAStar.cpp.s
+
+StarNode.o: StarNode.cpp.o
+
+.PHONY : StarNode.o
+
+# target to build an object file
+StarNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/StarNode.cpp.o
+.PHONY : StarNode.cpp.o
+
+StarNode.i: StarNode.cpp.i
+
+.PHONY : StarNode.i
+
+# target to preprocess a source file
+StarNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/StarNode.cpp.i
+.PHONY : StarNode.cpp.i
+
+StarNode.s: StarNode.cpp.s
+
+.PHONY : StarNode.s
+
+# target to generate assembly for a file
+StarNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/StarNode.cpp.s
+.PHONY : StarNode.cpp.s
 
 main.o: main.cpp.o
 
@@ -175,7 +202,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -184,7 +211,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -193,7 +220,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Backtracking.dir/build.make CMakeFiles/Backtracking.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathfindingA_.dir/build.make CMakeFiles/PathfindingA_.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -204,10 +231,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Backtracking"
-	@echo "... Backtracking.o"
-	@echo "... Backtracking.i"
-	@echo "... Backtracking.s"
+	@echo "... PathfindingA_"
+	@echo "... PathfindingAStar.o"
+	@echo "... PathfindingAStar.i"
+	@echo "... PathfindingAStar.s"
+	@echo "... StarNode.o"
+	@echo "... StarNode.i"
+	@echo "... StarNode.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
