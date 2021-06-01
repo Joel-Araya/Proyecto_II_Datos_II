@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class BallMovement : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class BallMovement : MonoBehaviour
     private RectTransform rectTransform;
 
     [SerializeField] Slider strengh;
+    [SerializeField] bool turn=false;
+    public bool touch;
+
+    [SerializeField] float time = 0;
 
     void Start()
     {
@@ -29,43 +34,75 @@ public class BallMovement : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        Vector2 MousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if ((rb2d.velocity.x == 0 && rb2d.velocity.x == 0) || true)
+        {
+            if (turn)
+            {
+                Vector2 MousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float xAux = (rectTransform.position.x - MousePosition.x);
-        float yAux = (rectTransform.position.y - MousePosition.y);
+                float xAux = (rectTransform.position.x - MousePosition.x);
+                float yAux = (rectTransform.position.y - MousePosition.y);
 
-        if (xAux < -10) { xAux = -10; }
-        if (xAux > 10) { xAux = 10; }
-        if (yAux < -10) { yAux = -10; }
-        if (yAux > 10) { yAux = 10; }
+                if (xAux < -10) { xAux = -10; }
+                if (xAux > 10) { xAux = 10; }
+                if (yAux < -10) { yAux = -10; }
+                if (yAux > 10) { yAux = 10; }
 
-        float magnitude = 3 * (new Vector2(xAux, yAux)).magnitude;
-        strengh.value = magnitude;
+                float magnitude = 3 * (new Vector2(xAux, yAux)).magnitude;
+                strengh.value = magnitude;
 
+            }
+        }
+
+    }
+
+    public void turnComputer()
+    {
+        if (!turn)
+        {
+            Debug.Log("Turn PC");
+            rb2d.velocity = 1 * (new Vector2(-10, 0));
+            turn = true;
+        }
+    }
+
+
+    public void nextTurn()
+    {
+        turn = !turn;
     }
 
     public void OnMouseUp()
     {
-        Vector2 MousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        time = 0;
 
-        //Debug.Log("Mouse X " + MousePosition.x + ", Mouse Y " + MousePosition.y);
-        //Debug.Log("Bola X " + MousePosition.x + ", Bola Y " + MousePosition.y);
+        if (turn)
+        {
+            Vector2 MousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float xAux = (rectTransform.position.x - MousePosition.x);
-        float yAux = (rectTransform.position.y - MousePosition.y);
+            //Debug.Log("Mouse X " + MousePosition.x + ", Mouse Y " + MousePosition.y);
+            //Debug.Log("Bola X " + MousePosition.x + ", Bola Y " + MousePosition.y);
 
-        if (xAux < -10) { xAux = -10; }
-        if (xAux > 10) { xAux = 10; }
-        if (yAux < -10) { yAux = -10; }
-        if (yAux > 10) { yAux = 10; }
+            float xAux = (rectTransform.position.x - MousePosition.x);
+            float yAux = (rectTransform.position.y - MousePosition.y);
 
-        rb2d.velocity = 3*(new Vector2(xAux, yAux));
-        strengh.value = 0;
+            if (xAux < -10) { xAux = -10; }
+            if (xAux > 10) { xAux = 10; }
+            if (yAux < -10) { yAux = -10; }
+            if (yAux > 10) { yAux = 10; }
 
+            rb2d.velocity = 3 * (new Vector2(xAux, yAux));
+            strengh.value = 0;
+
+            turn = false;
+        }   
     }
 
     void Update()
     {
-        rb2d.velocity = new Vector2((float)(0.99 *rb2d.velocity.x), (float)(0.99*rb2d.velocity.y));
+
+        rb2d.velocity = (new Vector2((float)0.99*rb2d.velocity.x, (float)0.99 * rb2d.velocity.y));
+        time += Time.deltaTime;
+
     }
 }

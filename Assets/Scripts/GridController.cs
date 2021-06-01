@@ -20,7 +20,8 @@ public class GridController : MonoBehaviour
 
     RectTransform rectTransform;
 
-
+    [SerializeField] BallMovement ball;
+    [SerializeField] int ballPositionX, ballPositionY;
     void Start()
     {
 
@@ -101,4 +102,25 @@ public class GridController : MonoBehaviour
             }
         }
     }
+
+
+    public void Update()
+    {
+        for (int i = 0; i < colunmLenght-1; i++)
+        {
+            for (int j = 0; j < rowLenght-1; j++)
+            {
+                if(positions[i,j].x < ball.GetComponent<Rigidbody2D>().position.x && ball.GetComponent<Rigidbody2D>().position.x < positions[i+1, j].x)
+                {
+                    ballPositionX = i;
+                }
+
+                if(positions[i,j].y < ball.GetComponent<Rigidbody2D>().position.y && ball.GetComponent<Rigidbody2D>().position.y < positions[i, j+1].y)
+                {
+                    ballPositionY = j;
+                }
+            }
+        }
+    }
+
 }

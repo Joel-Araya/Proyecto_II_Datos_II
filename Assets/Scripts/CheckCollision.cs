@@ -11,13 +11,15 @@ public class CheckCollision : MonoBehaviour
         if (collision.CompareTag("Top") || collision.CompareTag("Down"))
         {
             GetComponentInParent<Rigidbody2D>().velocity = new Vector2(GetComponentInParent<Rigidbody2D>().velocity.x, -GetComponentInParent<Rigidbody2D>().velocity.y);
+            GetComponentInParent<BallMovement>().touch = true;
+
         }
 
         if (collision.CompareTag("Right") || collision.CompareTag("Left"))
         {
             
             GetComponentInParent<Rigidbody2D>().velocity = new Vector2(-GetComponentInParent<Rigidbody2D>().velocity.x, GetComponentInParent<Rigidbody2D>().velocity.y);
-
+            GetComponentInParent<BallMovement>().touch = true;
         }
 
         if (collision.CompareTag("Right Goal"))
@@ -36,4 +38,21 @@ public class CheckCollision : MonoBehaviour
             GetComponentInParent<RectTransform>().SetPositionAndRotation(new Vector2(0, 0), GetComponentInParent<RectTransform>().rotation);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Top") || collision.CompareTag("Down"))
+        {
+            GetComponentInParent<BallMovement>().touch = false;
+
+        }
+
+        if (collision.CompareTag("Right") || collision.CompareTag("Left"))
+        {
+            GetComponentInParent<BallMovement>().touch = false;
+        }
+    }
+
 }
+
+
