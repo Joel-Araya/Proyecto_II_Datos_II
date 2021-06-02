@@ -85,7 +85,7 @@ void PathfindingAStar::createSol(StarNode * node_){
 void PathfindingAStar::addNeighbors(StarNode * node_){
     if(isSafe(node_->x-1, node_->y-1)){
         if (!existsInClosedList(matrix[node_->y-1][node_->x-1])){
-            int newF = matrix[node_->y-1][node_->x-1]->H + node_->F;
+            int newF = matrix[node_->y-1][node_->x-1]->H + node_->F + 14;
             if (existsInOpenList(matrix[node_->y-1][node_->x-1])){
                 if(newF < matrix[node_->y-1][node_->x-1]->F){
                     matrix[node_->y-1][node_->x-1]->F = newF;
@@ -101,7 +101,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x, node_->y-1)){
         if (!existsInClosedList(matrix[node_->y-1][node_->x])){
-            int newF = matrix[node_->y-1][node_->x]->H + node_->F;
+            int newF = matrix[node_->y-1][node_->x]->H + node_->F + 10;
             if (existsInOpenList(matrix[node_->y-1][node_->x])){
                 if(newF < matrix[node_->y-1][node_->x]->F){
                     matrix[node_->y-1][node_->x]->F = newF;
@@ -117,7 +117,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x+1, node_->y-1)){
         if (!existsInClosedList(matrix[node_->y-1][node_->x+1])){
-            int newF = matrix[node_->y-1][node_->x+1]->H + node_->F;
+            int newF = matrix[node_->y-1][node_->x+1]->H + node_->F + 14;
             if (existsInOpenList(matrix[node_->y-1][node_->x+1])){
                 if(newF < matrix[node_->y-1][node_->x+1]->F){
                     matrix[node_->y-1][node_->x+1]->F = newF;
@@ -133,7 +133,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x-1, node_->y)){
         if (!existsInClosedList(matrix[node_->y][node_->x-1])){
-            int newF = matrix[node_->y][node_->x-1]->H + node_->F;
+            int newF = matrix[node_->y][node_->x-1]->H + node_->F + 10;
             if (existsInOpenList(matrix[node_->y][node_->x-1])){
                 if(newF < matrix[node_->y][node_->x-1]->F){
                     matrix[node_->y][node_->x-1]->F = newF;
@@ -149,7 +149,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x+1, node_->y)){
         if (!existsInClosedList(matrix[node_->y][node_->x+1])){
-            int newF = matrix[node_->y][node_->x+1]->H + node_->F;
+            int newF = matrix[node_->y][node_->x+1]->H + node_->F + 10;
             if (existsInOpenList(matrix[node_->y][node_->x+1])){
                 if(newF < matrix[node_->y][node_->x+1]->F){
                     matrix[node_->y][node_->x+1]->F = newF;
@@ -165,7 +165,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x-1, node_->y+1)){
         if (!existsInClosedList(matrix[node_->y+1][node_->x-1])){
-            int newF = matrix[node_->y+1][node_->x-1]->H + node_->F;
+            int newF = matrix[node_->y+1][node_->x-1]->H + node_->F + 14;
             if (existsInOpenList(matrix[node_->y+1][node_->x-1])){
                 if(newF < matrix[node_->y+1][node_->x-1]->F){
                     matrix[node_->y+1][node_->x-1]->F = newF;
@@ -181,7 +181,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x, node_->y+1)){
         if (!existsInClosedList(matrix[node_->y+1][node_->x])){
-            int newF = matrix[node_->y+1][node_->x]->H + node_->F;
+            int newF = matrix[node_->y+1][node_->x]->H + node_->F + 10;
             if (existsInOpenList(matrix[node_->y+1][node_->x])){
                 if(newF < matrix[node_->y+1][node_->x]->F){
                     matrix[node_->y+1][node_->x]->F = newF;
@@ -197,7 +197,7 @@ void PathfindingAStar::addNeighbors(StarNode * node_){
     }
     if(isSafe(node_->x+1, node_->y+1)){
         if (!existsInClosedList(matrix[node_->y+1][node_->x+1])){
-            int newF = matrix[node_->y+1][node_->x+1]->H + node_->F;
+            int newF = matrix[node_->y+1][node_->x+1]->H + node_->F + 14;
             if (existsInOpenList(matrix[node_->y+1][node_->x+1])){
                 if(newF < matrix[node_->y+1][node_->x+1]->F){
                     matrix[node_->y+1][node_->x+1]->F = newF;
