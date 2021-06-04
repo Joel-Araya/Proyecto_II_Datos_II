@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/PathfindingA_.dir/main.cpp.o CMakeFiles/PathfindingA_.dir/PathfindingAStar.cpp.o CMakeFiles/PathfindingA_.dir/StarNode.cpp.o -o PathfindingA_ 
