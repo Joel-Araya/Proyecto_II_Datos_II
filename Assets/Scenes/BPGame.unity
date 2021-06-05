@@ -731,7 +731,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1942799677}
-        m_MethodName: turnComputer
+        m_MethodName: nextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1789,6 +1789,8 @@ MonoBehaviour:
   ball: {fileID: 1942799677}
   ballPositionX: 0
   ballPositionY: 0
+  vectoresPosition: []
+  integers: 
 --- !u!4 &1293915769
 Transform:
   m_ObjectHideFlags: 0

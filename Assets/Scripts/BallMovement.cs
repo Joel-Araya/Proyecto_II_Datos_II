@@ -60,16 +60,22 @@ public class BallMovement : MonoBehaviour
     {
         if (!turn)
         {
-            Debug.Log("Turn PC");
+            //Debug.Log("Turn PC");
             rb2d.velocity = 1 * (new Vector2(-10, 0));
-            turn = true;
+
         }
     }
 
 
     public void nextTurn()
     {
-        turn = !turn;
+        if(turn){
+            turn=true;
+
+        } else if(!turn){
+            turnComputer();
+            turn=true;
+        }
     }
 
     public void OnMouseUp()

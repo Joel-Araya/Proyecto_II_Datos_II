@@ -28,6 +28,8 @@ public class GridController : MonoBehaviour
     [SerializeField] int ballPositionX, ballPositionY;
 
     [SerializeField] List<Vector2> vectoresPosition = new List<Vector2>();
+    [SerializeField] List<int> integers = new List<int>();
+
 
 
     void Start()
@@ -112,7 +114,20 @@ public class GridController : MonoBehaviour
         vectoresPosition.Add(new Vector2(4,5));
         vectoresPosition.Add(new Vector2(5,5));
 
-        showPath(vectoresPosition);
+        //showPath(vectoresPosition);
+
+        integers.Add(3);
+        integers.Add(3);
+        integers.Add(3);
+        integers.Add(4);
+        integers.Add(3);
+        integers.Add(5);
+        integers.Add(4);
+        integers.Add(5);
+        integers.Add(5);
+        integers.Add(5);
+
+        showPath(integers);
     }
 
     public void setMarks()
@@ -152,6 +167,13 @@ public class GridController : MonoBehaviour
 
 
 
+    public void showPath(List<int> integers)
+    {
+        for (int i = 0; i < integers.Count-1; i+=2)
+        {
+            positionsMarks[integers[i], integers[i+1]].SetActive(true);
+        }
+    }
 
 
 
