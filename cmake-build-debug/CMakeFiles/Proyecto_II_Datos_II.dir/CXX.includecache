@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joel/Escritorio/Proyecto_II_Datos_II/main.cpp
+iostream
+-
+src/PathfindingA/PathfindingAStar.h
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/PathfindingAStar.h
+src/Backtraking/Backtracking.h
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/Backtraking/Backtracking.h
+
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/Backtraking/Backtracking.h
+
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/PathfindingAStar.h
+list
+-
+StarNode.h
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/StarNode.h
+
+/home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/StarNode.h
+iostream
+-
+

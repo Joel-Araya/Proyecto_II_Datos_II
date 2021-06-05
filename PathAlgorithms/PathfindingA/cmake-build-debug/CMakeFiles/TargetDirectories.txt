@@ -1,3 +1,0 @@
-/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ignacio/Documents/github/Proyecto_II_Datos_II/PathAlgorithms/PathfindingA*/cmake-build-debug/CMakeFiles/PathfindingA_.dir
