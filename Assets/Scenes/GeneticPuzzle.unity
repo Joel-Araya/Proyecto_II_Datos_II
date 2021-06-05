@@ -486,7 +486,6 @@ MonoBehaviour:
   auxChild: {fileID: 3350826203273862791, guid: f5c81a4b0ddbd8d40b6ecc96d2678e7c,
     type: 3}
   original: {fileID: 188543313}
-  images: []
   gridImages: {fileID: 1990392304}
   extensions:
   - image files
@@ -1258,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 7299530890914661728, guid: d7fa7746c7d988d48b009e145998ddd2,
         type: 3}
       propertyPath: countParts
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fa7746c7d988d48b009e145998ddd2, type: 3}

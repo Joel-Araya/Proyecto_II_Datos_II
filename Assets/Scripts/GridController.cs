@@ -121,7 +121,6 @@ public class GridController : MonoBehaviour
         {
             for (int y = 0; y < rowLenght; y++)
             {
-
                 GameObject objHijo = Instantiate(prefabMark) as GameObject;
                 objHijo.transform.SetParent(padreCampo.transform);
                 objHijo.transform.position = positions[x, y];

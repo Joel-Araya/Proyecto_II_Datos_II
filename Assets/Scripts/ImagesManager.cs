@@ -48,14 +48,19 @@ public class ImagesManager : MonoBehaviour
 
         }
 
-        
+
+        //swapSprite(0, 1);
+
         for(int i = 0; i<countParts; i++)
         {
-            swapSprite(i, i+9);
+            //Debug.Log(gridImages.transform.GetChild(i).gameObject.GetInstanceID());
+
+            //swapSprite(i, i+9);
         }
 
-        //ReadImage("Assets\\Imagenes\\xD.png");
+        ReadImage("src\\Genetic\\Images\\original.jpg");
 
+        ReadAllImages();
 
     }
 
@@ -81,11 +86,30 @@ public class ImagesManager : MonoBehaviour
         newTexture.LoadImage(image);
         Sprite sprite = Sprite.Create(newTexture, new Rect(0,0,newTexture.width, newTexture.height), new Vector2(0.5f,0.5f));
         original.sprite = sprite;
-    }    
+    }
+
+    public void ReadAllImages()
+    {
+        int[] list = {5, 7, 8, 6, 4, 12, 3, 1, 9, 16, 14, 15, 11, 13, 2, 10};
+
+        for (int i = 0; i<countParts*countParts; i++)
+        {
+            string path = "src\\Genetic\\Images\\" + list[i] + ".jpg" ;
+
+            if (!File.Exists(path)) return;
+            byte[] image = File.ReadAllBytes(path);
+            Texture2D newTexture = new Texture2D(1, 1);
+            newTexture.LoadImage(image);
+            Sprite sprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
+            gridImages.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = sprite;
+        }
+    }
 
     public void ReadImage(string path, int element)
     {
         //path = EditorUtility.OpenFilePanelWithFilters("Selecciona una imagen", "", extensions);
+
+
         if (!File.Exists(path)) return;
         byte[] image = File.ReadAllBytes(path);
         Texture2D newTexture = new Texture2D(1,1);

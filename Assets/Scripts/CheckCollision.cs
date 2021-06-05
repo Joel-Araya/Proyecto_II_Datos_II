@@ -5,7 +5,6 @@ using UnityEngine;
 public class CheckCollision : MonoBehaviour
 {
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Top") || collision.CompareTag("Down"))
