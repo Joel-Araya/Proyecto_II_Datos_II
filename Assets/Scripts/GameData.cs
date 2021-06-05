@@ -7,7 +7,7 @@ public class GameData : MonoBehaviour
 
     public int maxGoals = 5;
     public int numPlayers = 10;
-    public int countParts = 9;
+    public int countParts = 3;
 
     public static GameData gameData;
 

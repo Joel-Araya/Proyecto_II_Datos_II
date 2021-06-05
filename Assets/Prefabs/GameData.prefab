@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGoals: 5
   numPlayers: 10
-  countParts: 9
+  countParts: 3

@@ -6,6 +6,6 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sin Friccion
-  friction: 0
+  m_Name: "Poca Fricci\xF3n"
+  friction: 0.1
   bounciness: 0

@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7299530890914661728, guid: d7fa7746c7d988d48b009e145998ddd2,
+        type: 3}
+      propertyPath: countParts
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fa7746c7d988d48b009e145998ddd2, type: 3}
 --- !u!1 &16570363
@@ -1499,7 +1504,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1514180938}
   m_Direction: 0
   m_MinValue: 3
-  m_MaxValue: 7
+  m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 3
   m_OnValueChanged:
