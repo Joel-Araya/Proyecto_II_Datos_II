@@ -3,8 +3,13 @@
 
 CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Backtraking/Backtracking.h
+CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Client.h
+CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Genetic/Genetic.cpp
+CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Genetic/tinyxml/tinystr.h
+CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Genetic/tinyxml/tinyxml.h
 CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/PathfindingA/PathfindingAStar.h
 CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/PathfindingA/StarNode.h
+CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o: ../src/Server.h
 
 CMakeFiles/Proyecto_II_Datos_II.dir/src/Backtraking/Backtracking.cpp.o: ../src/Backtraking/Backtracking.cpp
 CMakeFiles/Proyecto_II_Datos_II.dir/src/Backtraking/Backtracking.cpp.o: ../src/Backtraking/Backtracking.h

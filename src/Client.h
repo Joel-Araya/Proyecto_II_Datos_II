@@ -14,9 +14,9 @@
 #define CLIENT_H
 
 #include <iostream>
-#include <string.h>
+#include <cstring>
 #include <cstdlib>
-#include <stdlib.h>
+#include <cstdlib>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>

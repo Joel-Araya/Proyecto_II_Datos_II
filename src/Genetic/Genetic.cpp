@@ -18,6 +18,7 @@
 #include <math.h>
 #include <time.h>
 #include <tinyxml.h>
+#include "tinyxml/tinyxml.h"
 
 //Tipo de estructura la cual contiene el gen de cada individuo y su aptitud (su posicion relativa)
 typedef struct {
@@ -39,7 +40,7 @@ void build_simple_doc(Individuo*, Individuo, Individuo, int);
 bool compara(Individuo, Individuo);
 bool sigue(Individuo);
  
-int main() {
+int mainGenetic() {
     srand (time(NULL));
     AG();
     return 0;
@@ -440,7 +441,7 @@ std::string to_strPo(Individuo * pobla){
 }
 
 
-void build_simple_doc(Individuo * Poblacion, Individuo Padre, Individuo Hijo, int Generacion)
+/*void build_simple_doc(Individuo * Poblacion, Individuo Padre, Individuo Hijo, int Generacion)
 {
 	TiXmlDocument doc;
 	TiXmlDeclaration * decl = new TiXmlDeclaration( "1.0", "", "" );
@@ -462,7 +463,7 @@ void build_simple_doc(Individuo * Poblacion, Individuo Padre, Individuo Hijo, in
 	doc.LinkEndChild( elementB );
 
 	doc.SaveFile( "./xml/" + std::to_string(Generacion) + ".xml" );
-}
+}*/
 
 /**
  * @brief Recibe dos individuos para comparar si son los mismos, en este caso revisa si indivios

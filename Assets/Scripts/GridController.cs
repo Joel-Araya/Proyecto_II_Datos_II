@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class GridController : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class GridController : MonoBehaviour
     [SerializeField] List<Vector2> vectoresPosition = new List<Vector2>();
     [SerializeField] List<int> integers = new List<int>();
 
+    [SerializeField] string textToSend = "";
 
+    [SerializeField] string pathTxtBp = "src\\Bp.txt"; 
 
     void Start()
     {
@@ -82,6 +85,8 @@ public class GridController : MonoBehaviour
                 objHijo.transform.position = positions[x, y];
                 positionsAux[x, y] = 1;
 
+                
+                
             }
             else
             {
@@ -106,6 +111,7 @@ public class GridController : MonoBehaviour
         setMarks();
 
 
+        UpdateTextToSend();
 
 
         vectoresPosition.Add(new Vector2(3,3));
@@ -175,11 +181,60 @@ public class GridController : MonoBehaviour
         }
     }
 
+    public  void UpdateTextToSend() {
+        UpdateBallPosition();
+        textToSend = "-" + ballPositionX.ToString() + "," + ballPositionY.ToString() + "-";
+        textToSend += "{";
+
+        for (int i = 0; i < colunmLenght; i++)
+        {
+            textToSend += "{";
+
+            for(int j = 0; j<rowLenght; j++)
+            {
+                if(j == 0)
+                {
+                    textToSend += positionsAux[i,j].ToString();
+                }
+
+                textToSend += "," + positionsAux[i,j].ToString();
+            
+            }
+            
+            textToSend += "}";
+            
+            if(i < colunmLenght - 1)
+            {
+                textToSend += ",";
+            }
+
+        }
+        textToSend += "}";
+        Debug.Log("SE ESTA ENVIANDO TEXTO");
+
+        //StreamWriter doc = File.AppendAllLines(pathTxtBp);
 
 
+        //File.WriteAllLines(pathTxtBp, textToSend);
+        FindObjectOfType<GameData>().enviar(textToSend);
+    }
 
-    public void Update()
-    {
+    public void updateFile(){
+        UpdateTextToSend();
+        StreamWriter fileTxt = new StreamWriter(pathTxtBp, true);
+        fileTxt.WriteLine(textToSend);
+        fileTxt.Close();
+        createTxt();
+    }
+    public void createTxt(){
+        StreamWriter fileTxt;
+        fileTxt = File.CreateText(pathTxtBp);
+        fileTxt.WriteLine(textToSend);
+        fileTxt.Close();
+    }
+
+    public void UpdateBallPosition(){
+                
         for (int i = 0; i < colunmLenght-1; i++)
         {
             for (int j = 0; j < rowLenght-1; j++)
@@ -195,6 +250,14 @@ public class GridController : MonoBehaviour
                 }
             }
         }
-    }
 
+        
+    }
+    
+
+    public void Update()
+    {
+
+        UpdateBallPosition();
+    }
 }

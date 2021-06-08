@@ -12,10 +12,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-//#include "Server.h"
-//#include "Client.h"
-//#include "src/Backtraking/Backtracking.h"
-//#include "src/PathfindingA/PathfindingAStar.h"
+#include "Server.h"
+#include "Client.h"
+#include "Backtraking/Backtracking.h"
+#include "PathfindingA/PathfindingAStar.h"
 
 /**
  * @brief Contains the logic of the server algorithm
@@ -24,7 +24,7 @@
  * @param number of memory space in bytes 
  */
 
-int matriz[10][15];
+int matriz[16][7];
 int x, y;
 
 using namespace std;
@@ -97,18 +97,18 @@ void analizarBP(string text)
  * @param matrizS 
  * @return string 
  */
-string pasar_aString(int matrizS[10][15]){
+string pasar_aString(int matrizS[16][7]){
     string devuelta = "{";
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 16; i++){
     	devuelta += "{";
-        for(int j = 0; j < 15; j++){
+        for(int j = 0; j < 7; j++){
         	if(j == 0){
         		devuelta += to_string(matrizS[i][j]);
 			}
         	devuelta += "," + to_string(matrizS[i][j]);
         }
         devuelta += "}";
-        if(i < 9){
+        if(i < 15){
         	devuelta += ",";
 		}
     } 
@@ -122,11 +122,10 @@ int main(int argc, char *argv[])
     int puerto = atoi(argv[1]);
     std::string opcion;
 
-    //Server *Servidor = new Server(puerto);
-    //Client *client = new Client();
-    //opcion = Servidor->Recibir();
-    opcion = "1";
-    std::string text, enviar;
+    Server *Servidor = new Server(puerto);
+    Client *client = new Client();
+    opcion = Servidor->Recibir();
+    std::string text, enviar, hola;
     int jugada = 0;
 
     while (true)
@@ -135,22 +134,26 @@ int main(int argc, char *argv[])
         if (opcion == "1")
         {   
             if(jugada == 0){
-                //text = Servidor->Recibir();
-                //analizarBP(text);
+                //cin>>hola;
+                text = Servidor->Recibir();
+
+                cout<<text<<endl;
+
+                analizarBP(text);
                 //PathfindingAStar example(matriz,x,y,16,3);
                 //example.findPath();
                 //enviar = pasar_aString(example.sol)
                 //client->Enviar(enviar);
-                //jugada = 1;
+                jugada = 1;
             } else{
-                //text = Servidor->Recibir();
-                //analizarBP(text);
+                text = Servidor->Recibir();
+                analizarBP(text);
                 //Backtracking example(matriz,x,y,0,3);
                 //example.findPath(example.myMaze);
                 //example.printSol(example.sol);
                 //enviar = pasar_aString(example.sol)
-                //client->Enviar(enviar);
-                //jugada = 0;
+                client->Enviar(enviar);
+                jugada = 0;
             }
         }
         //Puzzle game

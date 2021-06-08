@@ -4,8 +4,13 @@
 CMakeFiles/Proyecto_II_Datos_II.dir/main.cpp.o
  /home/joel/Escritorio/Proyecto_II_Datos_II/main.cpp
  /home/joel/Escritorio/Proyecto_II_Datos_II/src/Backtraking/Backtracking.h
+ /home/joel/Escritorio/Proyecto_II_Datos_II/src/Client.h
+ /home/joel/Escritorio/Proyecto_II_Datos_II/src/Genetic/Genetic.cpp
+ /home/joel/Escritorio/Proyecto_II_Datos_II/src/Genetic/tinyxml/tinystr.h
+ /home/joel/Escritorio/Proyecto_II_Datos_II/src/Genetic/tinyxml/tinyxml.h
  /home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/PathfindingAStar.h
  /home/joel/Escritorio/Proyecto_II_Datos_II/src/PathfindingA/StarNode.h
+ /home/joel/Escritorio/Proyecto_II_Datos_II/src/Server.h
 CMakeFiles/Proyecto_II_Datos_II.dir/src/Backtraking/Backtracking.cpp.o
  /home/joel/Escritorio/Proyecto_II_Datos_II/src/Backtraking/Backtracking.cpp
  /home/joel/Escritorio/Proyecto_II_Datos_II/src/Backtraking/Backtracking.h

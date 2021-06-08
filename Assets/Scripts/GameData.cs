@@ -19,7 +19,7 @@ public class GameData : MonoBehaviour
 	private Thread tcpListenerThread;  	
 	private TcpClient connectedTcpClient; 	
 	private string clientMessage;
-
+    
     public static GameData gameData;
 
     private void Start()
@@ -80,7 +80,7 @@ public class GameData : MonoBehaviour
         
         byte[] buffer = Encoding.Default.GetBytes(text);
 
-
+        Debug.Log("El texto es " + text);
         Socket Enviar = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         IPEndPoint connect = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 10000);
         
