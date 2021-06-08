@@ -33,7 +33,7 @@ public class GridController : MonoBehaviour
 
     [SerializeField] string textToSend = "";
 
-    [SerializeField] string pathTxtBp = "src\\Bp.txt"; 
+    [SerializeField] string pathTxtBp = "Bp.txt"; 
 
     void Start()
     {
@@ -216,7 +216,7 @@ public class GridController : MonoBehaviour
 
 
         //File.WriteAllLines(pathTxtBp, textToSend);
-        FindObjectOfType<GameData>().enviar(textToSend);
+        //FindObjectOfType<GameData>().enviar(textToSend);
     }
 
     public void updateFile(){

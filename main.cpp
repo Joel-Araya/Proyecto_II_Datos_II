@@ -4,13 +4,15 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <fstream>
 #include "src/Server.h"
 #include "src/Client.h"
 #include "src/Backtraking/Backtracking.h"
 #include "src/PathfindingA/PathfindingAStar.h"
-#include "src/Genetic/Genetic.cpp"
+//#include "src/Genetic/Genetic.cpp"
 
 using namespace std;
+void lectura();
 
 /**
  * @brief Contains the logic of the server algorithm
@@ -109,6 +111,24 @@ string pasar_aString(int matrizS[16][7]){
     return devuelta;
 }
 
+void abrirArchivo(){
+    ifstream archivo;
+    string texto;
+
+    archivo.open("Bp.txt",ios::in);
+
+    if(archivo.fail()){
+        cout<<"No se pudo abrir el archivo";
+        exit(1);
+    }
+
+    while (!archivo.eof()){
+        getline(archivo,texto);
+        cout<<texto<<endl;
+    }
+
+    archivo.close();
+}
 
 int main(int argc, char *argv[]) {
 
@@ -123,6 +143,7 @@ int main(int argc, char *argv[]) {
  *
  */
 
+    //abrirArchivo();
 
     int puerto = 10000;
     std::string opcion;
@@ -165,47 +186,40 @@ int main(int argc, char *argv[]) {
         }
     }
     return 0;
-}
-
-
-
-
-
-
 
     /*int x = 1;
 
-    if(x==0){
-        //Backtracking
-        int mazeEx[10][15]={{1,0,0,0,1,0,1,0,0,0,1,0,0,1,0},
-                            {1,1,1,0,1,1,1,0,0,0,1,0,0,1,0},
-                            {1,0,1,0,1,0,1,0,0,0,1,0,0,1,0},
-                            {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                            {0,0,0,1,1,1,1,0,0,0,1,0,0,1,1},
-                            {0,0,1,1,1,0,1,0,0,0,1,1,0,1,1},
-                            {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                            {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                            {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                            {0,0,1,1,1,0,1,1,1,1,1,0,0,1,1}};
-        Backtracking example(mazeEx, 1,1,10,0);
-        example.findPath(example.myMaze);
-        example.printSol(example.sol);
+if(x==0){
+    //Backtracking
+    int mazeEx[10][15]={{1,0,0,0,1,0,1,0,0,0,1,0,0,1,0},
+                        {1,1,1,0,1,1,1,0,0,0,1,0,0,1,0},
+                        {1,0,1,0,1,0,1,0,0,0,1,0,0,1,0},
+                        {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                        {0,0,0,1,1,1,1,0,0,0,1,0,0,1,1},
+                        {0,0,1,1,1,0,1,0,0,0,1,1,0,1,1},
+                        {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                        {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                        {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                        {0,0,1,1,1,0,1,1,1,1,1,0,0,1,1}};
+    Backtracking example(mazeEx, 1,1,10,0);
+    example.findPath(example.myMaze);
+    example.printSol(example.sol);
 
-    } else if (x=1){
-        //Pathfinding A*
+} else if (x=1){
+    //Pathfinding A*
 
-        int mazeEx2[10][15]={{1,0,0,1,1,0,1,1,1,1,1,0,0,1,0},
-                             {1,1,1,0,1,1,1,0,1,1,1,0,0,1,0},
-                             {1,0,1,0,1,0,1,0,0,0,1,0,0,1,0},
-                             {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                             {0,0,0,1,1,1,1,0,0,0,1,0,0,1,1},
-                             {0,0,1,1,1,0,1,0,0,0,1,1,0,1,1},
-                             {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                             {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                             {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
-                             {0,0,1,1,1,0,1,1,1,1,1,0,0,1,1}};
-        PathfindingAStar example(mazeEx2, 1,1,10,0);
-        example.findPath();
-        }*/
+    int mazeEx2[10][15]={{1,0,0,1,1,0,1,1,1,1,1,0,0,1,0},
+                         {1,1,1,0,1,1,1,0,1,1,1,0,0,1,0},
+                         {1,0,1,0,1,0,1,0,0,0,1,0,0,1,0},
+                         {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                         {0,0,0,1,1,1,1,0,0,0,1,0,0,1,1},
+                         {0,0,1,1,1,0,1,0,0,0,1,1,0,1,1},
+                         {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                         {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                         {0,0,1,1,1,0,1,0,0,0,1,0,0,1,0},
+                         {0,0,1,1,1,0,1,1,1,1,1,0,0,1,1}};
+    PathfindingAStar example(mazeEx2, 1,1,10,0);
+    example.findPath();
+    }*/
 
-
+}
