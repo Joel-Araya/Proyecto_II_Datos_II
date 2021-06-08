@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include "Server.h"
 #include "Client.h"
+#include "src/Backtraking/Backtracking.h"
+#include "src/PathfindingA/PathfindingAStar.h"
 
 /**
  * @brief Contains the logic of the server algorithm
@@ -24,16 +26,23 @@
 int main(int argc, char *argv[]){
 
     int puerto = atoi(argv[1]);
-
+	std::string opcion;
 
     Server *Servidor = new Server(puerto);
     Client *client = new Client();
+    opcion = Servidor->Recibir();
 
-    std::string text, revisar, textSalida, puntero;
+    std::string text, revisar;
 
     while(true){
-
-    	textSalida = "[1,2,3,4,5,6]";
+		//BP Game
+		if(opcion == "1"){
+			return 0;
+		}
+		//Puzzle game
+		else if(opcion == "2"){
+			return 1;
+		}
         text = Servidor->Recibir();
         std::cout<<text<<std::endl;
         client->Enviar(textSalida);
