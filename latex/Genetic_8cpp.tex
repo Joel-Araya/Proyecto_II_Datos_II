@@ -1,0 +1,752 @@
+\hypertarget{Genetic_8cpp}{}\doxysection{src/\+Genetic/\+Genetic.cpp File Reference}
+\label{Genetic_8cpp}\index{src/Genetic/Genetic.cpp@{src/Genetic/Genetic.cpp}}
+
+
+Este archivo se encarga de la logica del algortimo genetico para buscar la solucion mas optima al problema.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$tinyxml.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tinyxml/tinyxml.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIndividuo}{Individuo}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}}~4
+\item 
+\#define \mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\+\_\+\+COD}}~16
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}} (\mbox{\hyperlink{structIndividuo}{Individuo}} ind)
+\begin{DoxyCompactList}\small\item\em Recibe un individuo y se encarga de calcular su aptitud. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ \mbox{\hyperlink{Genetic_8cpp_abd6ecc8c78ba35010d1f8b6c8e62a877}{generar\+Inicial}} (void)
+\begin{DoxyCompactList}\small\item\em Se encarga de crear aleatoriamente un individuo el cual sera el padre de la primer generacion y en base a el se generara la poblacion. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ \mbox{\hyperlink{Genetic_8cpp_a34a410dde6a14270dbed61bd645872eb}{generar\+Poblacion}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$Inicial)
+\begin{DoxyCompactList}\small\item\em Esta funcion recibe un individuo el cual es el mejor adaptado de la generacion anterior para luego crear una poblacion con base en sus mutaciones posibles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ \mbox{\hyperlink{Genetic_8cpp_a0118f6c0e1310e37fd7520fa95291088}{seleccion\+Torneos}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$poblacion)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo vector de individuo de una poblacion, seleccionando el mejor entre un combate de dos de estos individuos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Genetic_8cpp_abf3b4f7adbbd09092ac8ca1916483e77}{cruzar\+Seleccion}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$)
+\item 
+\mbox{\hyperlink{structIndividuo}{Individuo}} \mbox{\hyperlink{Genetic_8cpp_a23cdc306a967c78f27324a61ebba69eb}{elite}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$poblacion)
+\begin{DoxyCompactList}\small\item\em La siguiente funcion se encarga de elegir el mejor adaptado de una poblacion para convertirlo en padre de la siguiente generacion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Genetic_8cpp_a24269f09682b1b2f85924ec14f35594d}{AG}} (void)
+\begin{DoxyCompactList}\small\item\em se trata de la funcion que ejecuta el algoritmo. el proceso es el siguiente 1 -\/ Generar la poblacion 2 -\/ Seleccion de candidatos al cruce 3 -\/ Cruce de los candidatos (incluye mutacion) 4 -\/ Incluir al mejor de la generacion anterior en la nueva 5 -\/ Repetir el proceso ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}{imprime\+Poblacion}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$pob)
+\begin{DoxyCompactList}\small\item\em Recibe una poblacion y se encarga de imprimir toda la poblacion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Genetic_8cpp_aeeb1de7fed73f7a99478f0a08b24aac9}{imprime\+Genotipo}} (\mbox{\hyperlink{structIndividuo}{Individuo}} \mbox{\hyperlink{mainServer_8cpp_a6150e0515f7202e2fb518f7206ed97dc}{x}})
+\begin{DoxyCompactList}\small\item\em Recive un parametro \mbox{\hyperlink{structIndividuo}{Individuo}} al cual se le procede a imprimir todo el genotipo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Genetic_8cpp_a7ffb0b2302836507c74e647f8a29b604}{build\+\_\+simple\+\_\+doc}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$, \mbox{\hyperlink{structIndividuo}{Individuo}}, \mbox{\hyperlink{structIndividuo}{Individuo}}, int)
+\item 
+bool \mbox{\hyperlink{Genetic_8cpp_a496efe406736d058aaf67d832ecbe1dc}{compara}} (\mbox{\hyperlink{structIndividuo}{Individuo}} best, \mbox{\hyperlink{structIndividuo}{Individuo}} best\+Temp)
+\begin{DoxyCompactList}\small\item\em Recibe dos individuos para comparar si son los mismos, en este caso revisa si indivios anteriores son iguales para realizar otra tipo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Genetic_8cpp_a49c9b7aec1f12c2d5adc7d8839d12846}{sigue}} (\mbox{\hyperlink{structIndividuo}{Individuo}} best)
+\begin{DoxyCompactList}\small\item\em Recibe el indivudo best para comparar si su genotipo es el correcto y asi parar el ciclo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Genetic_8cpp_aaabbf3b194c8e6abcf60d94a8573d906}{main\+Genetic}} ()
+\item 
+std\+::string \mbox{\hyperlink{Genetic_8cpp_a10d7a698fcd0660b771e6be236f32be4}{to\+\_\+str}} (\mbox{\hyperlink{structIndividuo}{Individuo}} indi)
+\item 
+std\+::string \mbox{\hyperlink{Genetic_8cpp_ac57052ffdc5162d37f74d7fd97837d60}{to\+\_\+str\+Po}} (\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$pobla)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo se encarga de la logica del algortimo genetico para buscar la solucion mas optima al problema. 
+
+\begin{DoxyAuthor}{Author}
+Johnny Aguero (\href{mailto:johnny.zaet08@gmail.com}{\texttt{ johnny.\+zaet08@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyReturn}{Returns}
+Retorna una lista de los mejores individuos de cada generacion 
+\end{DoxyReturn}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/06-\/07
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}\label{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}} 
+\index{Genetic.cpp@{Genetic.cpp}!LONG\_COD@{LONG\_COD}}
+\index{LONG\_COD@{LONG\_COD}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{LONG\_COD}{LONG\_COD}}
+{\footnotesize\ttfamily \#define LONG\+\_\+\+COD~16}
+
+
+
+Definition at line 13 of file Genetic.\+cpp.
+
+\mbox{\Hypertarget{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}\label{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}} 
+\index{Genetic.cpp@{Genetic.cpp}!POBLACION@{POBLACION}}
+\index{POBLACION@{POBLACION}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{POBLACION}{POBLACION}}
+{\footnotesize\ttfamily \#define POBLACION~4}
+
+
+
+Definition at line 12 of file Genetic.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Genetic_8cpp_a24269f09682b1b2f85924ec14f35594d}\label{Genetic_8cpp_a24269f09682b1b2f85924ec14f35594d}} 
+\index{Genetic.cpp@{Genetic.cpp}!AG@{AG}}
+\index{AG@{AG}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{AG()}{AG()}}
+{\footnotesize\ttfamily void AG (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+se trata de la funcion que ejecuta el algoritmo. el proceso es el siguiente 1 -\/ Generar la poblacion 2 -\/ Seleccion de candidatos al cruce 3 -\/ Cruce de los candidatos (incluye mutacion) 4 -\/ Incluir al mejor de la generacion anterior en la nueva 5 -\/ Repetir el proceso ~\newline
+ 
+
+
+
+Definition at line 331 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{332 \{}
+\DoxyCodeLine{333     \mbox{\hyperlink{structIndividuo}{Individuo}} * inicial = \mbox{\hyperlink{Genetic_8cpp_abd6ecc8c78ba35010d1f8b6c8e62a877}{generarInicial}}();}
+\DoxyCodeLine{334     \mbox{\hyperlink{structIndividuo}{Individuo}} best, bestTemp, bestTemp1;}
+\DoxyCodeLine{335     \mbox{\hyperlink{structIndividuo}{Individuo}} * seleccion, * poblacion = \mbox{\hyperlink{Genetic_8cpp_a34a410dde6a14270dbed61bd645872eb}{generarPoblacion}}(inicial);}
+\DoxyCodeLine{336     std::cout << std::endl;}
+\DoxyCodeLine{337     std::cout << \textcolor{stringliteral}{"{}Poblacion inicial"{}} << std::endl;}
+\DoxyCodeLine{338     \mbox{\hyperlink{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}{imprimePoblacion}}(poblacion);}
+\DoxyCodeLine{339     \textcolor{keywordtype}{int} generacion = 0;}
+\DoxyCodeLine{340  }
+\DoxyCodeLine{341     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{342     \{}
+\DoxyCodeLine{343         seleccion = \mbox{\hyperlink{Genetic_8cpp_a0118f6c0e1310e37fd7520fa95291088}{seleccionTorneos}}(poblacion);}
+\DoxyCodeLine{344         \mbox{\hyperlink{Genetic_8cpp_abf3b4f7adbbd09092ac8ca1916483e77}{cruzarSeleccion}}(seleccion);}
+\DoxyCodeLine{345         std::cout << \textcolor{stringliteral}{"{}Poblacion despues de cruzar"{}} << std::endl;}
+\DoxyCodeLine{346         \mbox{\hyperlink{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}{imprimePoblacion}}(seleccion);}
+\DoxyCodeLine{347         best = \mbox{\hyperlink{Genetic_8cpp_a23cdc306a967c78f27324a61ebba69eb}{elite}}(poblacion);}
+\DoxyCodeLine{348         \textcolor{keywordflow}{if}(\mbox{\hyperlink{Genetic_8cpp_a496efe406736d058aaf67d832ecbe1dc}{compara}}(best, bestTemp))\{}
+\DoxyCodeLine{349             best = poblacion[1];}
+\DoxyCodeLine{350         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{Genetic_8cpp_a496efe406736d058aaf67d832ecbe1dc}{compara}}(best, bestTemp1))\{}
+\DoxyCodeLine{351             best = poblacion[2];}
+\DoxyCodeLine{352         \}}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354         std::cout << \textcolor{stringliteral}{"{}BEST:"{}} << std::endl;}
+\DoxyCodeLine{355         }
+\DoxyCodeLine{356         \mbox{\hyperlink{Genetic_8cpp_aeeb1de7fed73f7a99478f0a08b24aac9}{imprimeGenotipo}}(best);}
+\DoxyCodeLine{357         }
+\DoxyCodeLine{358         \mbox{\hyperlink{Genetic_8cpp_a7ffb0b2302836507c74e647f8a29b604}{build\_simple\_doc}}(poblacion , bestTemp, best, generacion);}
+\DoxyCodeLine{359         }
+\DoxyCodeLine{360         free(poblacion);}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362         \textcolor{keywordflow}{if}(generacion >= 1)\{}
+\DoxyCodeLine{363             bestTemp1 = bestTemp;}
+\DoxyCodeLine{364         \}}
+\DoxyCodeLine{365         bestTemp = best;}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367         printf (\textcolor{stringliteral}{"{}\(\backslash\)n -\/ Es la generacion numero \%i\(\backslash\)n"{}}, generacion+1);}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369         poblacion = \mbox{\hyperlink{Genetic_8cpp_a34a410dde6a14270dbed61bd645872eb}{generarPoblacion}}(\&best);}
+\DoxyCodeLine{370         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nNueva poblacion"{}} << std::endl;}
+\DoxyCodeLine{371         \mbox{\hyperlink{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}{imprimePoblacion}}(poblacion);}
+\DoxyCodeLine{372         generacion++;}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374         \textcolor{keywordflow}{if}(generacion > 10)\{}
+\DoxyCodeLine{375             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{376         \}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     \} \textcolor{keywordflow}{while} (!\mbox{\hyperlink{Genetic_8cpp_a49c9b7aec1f12c2d5adc7d8839d12846}{sigue}}(best));}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380     \mbox{\hyperlink{Genetic_8cpp_a7ffb0b2302836507c74e647f8a29b604}{build\_simple\_doc}}(poblacion , bestTemp, best, generacion);}
+\DoxyCodeLine{381     }
+\DoxyCodeLine{382     free(poblacion);}
+\DoxyCodeLine{383     std::cout << std::endl;}
+\DoxyCodeLine{384     printf (\textcolor{stringliteral}{"{}*************************************\(\backslash\)n"{}});}
+\DoxyCodeLine{385     printf (\textcolor{stringliteral}{"{}*          FIN DEL ALGORITMO        *\(\backslash\)n"{}});}
+\DoxyCodeLine{386     printf (\textcolor{stringliteral}{"{}*************************************\(\backslash\)n"{}});}
+\DoxyCodeLine{387     printf (\textcolor{stringliteral}{"{} -\/ Es la generacion numero \%i\(\backslash\)n"{}}, generacion);}
+\DoxyCodeLine{388     printf (\textcolor{stringliteral}{"{}*************************************\(\backslash\)n"{}});}
+\DoxyCodeLine{389 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a7ffb0b2302836507c74e647f8a29b604}\label{Genetic_8cpp_a7ffb0b2302836507c74e647f8a29b604}} 
+\index{Genetic.cpp@{Genetic.cpp}!build\_simple\_doc@{build\_simple\_doc}}
+\index{build\_simple\_doc@{build\_simple\_doc}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{build\_simple\_doc()}{build\_simple\_doc()}}
+{\footnotesize\ttfamily void build\+\_\+simple\+\_\+doc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{,  }\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{,  }\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Genetic_8cpp_a496efe406736d058aaf67d832ecbe1dc}\label{Genetic_8cpp_a496efe406736d058aaf67d832ecbe1dc}} 
+\index{Genetic.cpp@{Genetic.cpp}!compara@{compara}}
+\index{compara@{compara}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{compara()}{compara()}}
+{\footnotesize\ttfamily bool compara (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{best,  }\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{best\+Temp }\end{DoxyParamCaption})}
+
+
+
+Recibe dos individuos para comparar si son los mismos, en este caso revisa si indivios anteriores son iguales para realizar otra tipo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em best} & \\
+\hline
+{\em best\+Temp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 477 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{477                                                 \{}
+\DoxyCodeLine{478     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; i++)\{}
+\DoxyCodeLine{479         \textcolor{keywordflow}{if}(best.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] != bestTemp.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i])\{}
+\DoxyCodeLine{480             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{481         \}}
+\DoxyCodeLine{482     \}}
+\DoxyCodeLine{483     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{484 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_abf3b4f7adbbd09092ac8ca1916483e77}\label{Genetic_8cpp_abf3b4f7adbbd09092ac8ca1916483e77}} 
+\index{Genetic.cpp@{Genetic.cpp}!cruzarSeleccion@{cruzarSeleccion}}
+\index{cruzarSeleccion@{cruzarSeleccion}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{cruzarSeleccion()}{cruzarSeleccion()}}
+{\footnotesize\ttfamily void cruzar\+Seleccion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{seleccion }\end{DoxyParamCaption})}
+
+
+
+Definition at line 234 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{235 \{}
+\DoxyCodeLine{236     \textcolor{keywordtype}{int} i, j, k;}
+\DoxyCodeLine{237     \mbox{\hyperlink{structIndividuo}{Individuo}} aux;}
+\DoxyCodeLine{238  }
+\DoxyCodeLine{239     \textcolor{keywordflow}{for}(i=0; i<\mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}}; i+=2)}
+\DoxyCodeLine{240     \{}
+\DoxyCodeLine{241             \textcolor{keywordflow}{for}(k=0; k<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; k++)\{}
+\DoxyCodeLine{242                 \textcolor{keywordflow}{if}(seleccion[i].genotipo[k] == 0)\{}
+\DoxyCodeLine{243                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{244                 \}}
+\DoxyCodeLine{245             \}}
+\DoxyCodeLine{246             \textcolor{keywordflow}{for}(j=0; j<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; j++)}
+\DoxyCodeLine{247             \{}
+\DoxyCodeLine{248                 \textcolor{keywordflow}{if}(seleccion[i].genotipo[j] < seleccion[i+1].genotipo[j] \&\& j != k)\{}
+\DoxyCodeLine{249                     aux.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = seleccion[i].\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{250                 \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{251                     aux.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = seleccion[i+1].\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{252                 \}}
+\DoxyCodeLine{253             \}}
+\DoxyCodeLine{254  }
+\DoxyCodeLine{255             seleccion[i].\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(seleccion[i]);}
+\DoxyCodeLine{256             seleccion[i+1].\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(seleccion[i+1]);}
+\DoxyCodeLine{257             aux.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(aux);}
+\DoxyCodeLine{258             seleccion[3] = aux;}
+\DoxyCodeLine{259     \}}
+\DoxyCodeLine{260 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a23cdc306a967c78f27324a61ebba69eb}\label{Genetic_8cpp_a23cdc306a967c78f27324a61ebba69eb}} 
+\index{Genetic.cpp@{Genetic.cpp}!elite@{elite}}
+\index{elite@{elite}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{elite()}{elite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIndividuo}{Individuo}} elite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{poblacion }\end{DoxyParamCaption})}
+
+
+
+La siguiente funcion se encarga de elegir el mejor adaptado de una poblacion para convertirlo en padre de la siguiente generacion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poblacion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structIndividuo}{Individuo}} 
+\end{DoxyReturn}
+
+
+Definition at line 269 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270 \{}
+\DoxyCodeLine{271     \mbox{\hyperlink{structIndividuo}{Individuo}} best = poblacion[0];}
+\DoxyCodeLine{272  }
+\DoxyCodeLine{273     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}}; i++)\{}
+\DoxyCodeLine{274         \textcolor{keywordtype}{int} ceros = 0;}
+\DoxyCodeLine{275         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k = 0; k < 16; k++)\{}
+\DoxyCodeLine{276             \textcolor{keywordflow}{if}(poblacion[i].genotipo[k] == 0)\{}
+\DoxyCodeLine{277                 ceros ++;}
+\DoxyCodeLine{278             \}}
+\DoxyCodeLine{279         \}}
+\DoxyCodeLine{280         \textcolor{keywordflow}{if}(best.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} > poblacion[i].aptitud \&\& poblacion[i].aptitud != 0 \&\& ceros >= 1)}
+\DoxyCodeLine{281             best = poblacion[i];}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{283     \textcolor{keywordflow}{return} best;}
+\DoxyCodeLine{284 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}\label{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}} 
+\index{Genetic.cpp@{Genetic.cpp}!fitness@{fitness}}
+\index{fitness@{fitness}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{fitness()}{fitness()}}
+{\footnotesize\ttfamily int fitness (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{ind }\end{DoxyParamCaption})}
+
+
+
+Recibe un individuo y se encarga de calcular su aptitud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & individuo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int la aptitud del individuo 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} querido[16] = \{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16\};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} fit = 0;}
+\DoxyCodeLine{59     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 16; i++)\{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if}(ind.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] != querido[i] \&\& ind.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] != 0)\{}
+\DoxyCodeLine{61             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 16; i++)\{}
+\DoxyCodeLine{62                 \textcolor{keywordflow}{if}(querido[i] == ind.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j])\{}
+\DoxyCodeLine{63                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{64                 \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{65                     fit++;}
+\DoxyCodeLine{66                 \}}
+\DoxyCodeLine{67             \}}
+\DoxyCodeLine{68         \}}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} fit;}
+\DoxyCodeLine{71 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_abd6ecc8c78ba35010d1f8b6c8e62a877}\label{Genetic_8cpp_abd6ecc8c78ba35010d1f8b6c8e62a877}} 
+\index{Genetic.cpp@{Genetic.cpp}!generarInicial@{generarInicial}}
+\index{generarInicial@{generarInicial}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{generarInicial()}{generarInicial()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ generar\+Inicial (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de crear aleatoriamente un individuo el cual sera el padre de la primer generacion y en base a el se generara la poblacion. 
+
+\begin{DoxyReturn}{Returns}
+Individuo$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{293                                 \{}
+\DoxyCodeLine{294     \mbox{\hyperlink{structIndividuo}{Individuo}} * correcto = (\mbox{\hyperlink{structIndividuo}{Individuo}} *) malloc (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structIndividuo}{Individuo}}));}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296     \textcolor{keywordtype}{int} array[16] = \{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16\};}
+\DoxyCodeLine{297     \textcolor{keywordtype}{int} size = 16;}
+\DoxyCodeLine{298     \textcolor{keywordtype}{int} sizePo = 0;}
+\DoxyCodeLine{299     \textcolor{keywordtype}{int} pos;}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{keywordflow}{while}(size > 0)\{}
+\DoxyCodeLine{302         pos  = rand() \% size;}
+\DoxyCodeLine{303         correcto-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[sizePo] = array[pos];}
+\DoxyCodeLine{304         sizePo++;}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306         \textcolor{keywordflow}{while}(pos<size)}
+\DoxyCodeLine{307         \{}
+\DoxyCodeLine{308             array[pos]=array[pos+1];}
+\DoxyCodeLine{309             array[pos+1]=0;}
+\DoxyCodeLine{310             pos++;}
+\DoxyCodeLine{311         \}}
+\DoxyCodeLine{312         size-\/-\/;}
+\DoxyCodeLine{313     \}}
+\DoxyCodeLine{314     }
+\DoxyCodeLine{315     correcto-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[rand() \% 16] = 0;}
+\DoxyCodeLine{316     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<16;i++)\{}
+\DoxyCodeLine{317         std::cout << correcto-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{318     \}}
+\DoxyCodeLine{319     \textcolor{keywordflow}{return} correcto;}
+\DoxyCodeLine{320 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a34a410dde6a14270dbed61bd645872eb}\label{Genetic_8cpp_a34a410dde6a14270dbed61bd645872eb}} 
+\index{Genetic.cpp@{Genetic.cpp}!generarPoblacion@{generarPoblacion}}
+\index{generarPoblacion@{generarPoblacion}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{generarPoblacion()}{generarPoblacion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ generar\+Poblacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{Inicial }\end{DoxyParamCaption})}
+
+
+
+Esta funcion recibe un individuo el cual es el mejor adaptado de la generacion anterior para luego crear una poblacion con base en sus mutaciones posibles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Inicial} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Individuo$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \mbox{\hyperlink{structIndividuo}{Individuo}} * poblacion;}
+\DoxyCodeLine{84     \mbox{\hyperlink{structIndividuo}{Individuo}} ind1, ind2, ind3, ind4;}
+\DoxyCodeLine{85     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} ref = 0;}
+\DoxyCodeLine{87  }
+\DoxyCodeLine{88     poblacion = (\mbox{\hyperlink{structIndividuo}{Individuo}} *) malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structIndividuo}{Individuo}})*\mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}});}
+\DoxyCodeLine{89     \textcolor{keywordflow}{for}(i=0;i<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}};i++)\{}
+\DoxyCodeLine{90         \textcolor{keywordflow}{if}(Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] == 0)\{}
+\DoxyCodeLine{91             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94     \textcolor{keywordflow}{if}(i == 3 || i == 7 || i == 11 || i == 15)\{}
+\DoxyCodeLine{95         \textcolor{keywordflow}{if}(i + 5 <= 16)\{}
+\DoxyCodeLine{96             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{97                 ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{98             \}}
+\DoxyCodeLine{99             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4];}
+\DoxyCodeLine{100             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4] = 0;}
+\DoxyCodeLine{101             ind1.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind1);}
+\DoxyCodeLine{102             poblacion[ref] = ind1;}
+\DoxyCodeLine{103             ref++;}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if}(i -\/ 5 >= 0)\{}
+\DoxyCodeLine{106             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{107                 ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{108             \}}
+\DoxyCodeLine{109             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4];}
+\DoxyCodeLine{110             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4] = 0;}
+\DoxyCodeLine{111             ind2.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind2);}
+\DoxyCodeLine{112             poblacion[ref] = ind2;}
+\DoxyCodeLine{113             ref++;}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{116             ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{117         \}}
+\DoxyCodeLine{118         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/1];}
+\DoxyCodeLine{119         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/1] = 0;}
+\DoxyCodeLine{120         ind3.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind3);}
+\DoxyCodeLine{121         poblacion[ref] = ind3;}
+\DoxyCodeLine{122         ref++;}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(i == 0 || i == 4 || i == 8 || i == 12)\{}
+\DoxyCodeLine{125         \textcolor{keywordflow}{if}(i + 5 <= 16)\{}
+\DoxyCodeLine{126             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{127                 ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{128             \}}
+\DoxyCodeLine{129             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4];}
+\DoxyCodeLine{130             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4] = 0;}
+\DoxyCodeLine{131             ind1.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind1);}
+\DoxyCodeLine{132             poblacion[ref] = ind1;}
+\DoxyCodeLine{133             ref++;}
+\DoxyCodeLine{134         \}}
+\DoxyCodeLine{135         \textcolor{keywordflow}{if}(i -\/ 5 >= 0)\{}
+\DoxyCodeLine{136             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{137                 ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{138             \}}
+\DoxyCodeLine{139             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4];}
+\DoxyCodeLine{140             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4] = 0;}
+\DoxyCodeLine{141             ind2.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind2);}
+\DoxyCodeLine{142             poblacion[ref] = ind2;}
+\DoxyCodeLine{143             ref++;}
+\DoxyCodeLine{144         \}}
+\DoxyCodeLine{145         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{146             ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+1];}
+\DoxyCodeLine{149         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+1] = 0;}
+\DoxyCodeLine{150         ind3.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind3);}
+\DoxyCodeLine{151         poblacion[ref] = ind3;}
+\DoxyCodeLine{152         ref++;}
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{155         \textcolor{keywordflow}{if}(i+5 <= 16)\{}
+\DoxyCodeLine{156             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{157                 ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{158             \}}
+\DoxyCodeLine{159             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4];}
+\DoxyCodeLine{160             ind1.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+4] = 0;}
+\DoxyCodeLine{161             ind1.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind1);}
+\DoxyCodeLine{162             poblacion[ref] = ind1;}
+\DoxyCodeLine{163             ref++;}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if}(i-\/5 >= 0)\{}
+\DoxyCodeLine{166             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{167                 ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{168             \}}
+\DoxyCodeLine{169             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4];}
+\DoxyCodeLine{170             ind2.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/4] = 0;}
+\DoxyCodeLine{171             ind2.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind2);}
+\DoxyCodeLine{172             poblacion[ref] = ind2;}
+\DoxyCodeLine{173             ref++;}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{177             ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{178         \}}
+\DoxyCodeLine{179         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+1];}
+\DoxyCodeLine{180         ind3.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i+1] = 0;}
+\DoxyCodeLine{181         ind3.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind3);}
+\DoxyCodeLine{182         poblacion[ref] = ind3;}
+\DoxyCodeLine{183         ref++;}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<17; j++)\{}
+\DoxyCodeLine{186             ind4.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j] = Inicial-\/>\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[j];}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188         ind4.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] = ind4.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/1];}
+\DoxyCodeLine{189         ind4.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i-\/1] = 0;}
+\DoxyCodeLine{190         ind4.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} = \mbox{\hyperlink{Genetic_8cpp_a91a2c7d3c2e037c5b3677734c6cade15}{fitness}}(ind4);}
+\DoxyCodeLine{191         poblacion[ref] = ind4;}
+\DoxyCodeLine{192         ref++;}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194     \textcolor{keywordflow}{return} poblacion;}
+\DoxyCodeLine{195 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_aeeb1de7fed73f7a99478f0a08b24aac9}\label{Genetic_8cpp_aeeb1de7fed73f7a99478f0a08b24aac9}} 
+\index{Genetic.cpp@{Genetic.cpp}!imprimeGenotipo@{imprimeGenotipo}}
+\index{imprimeGenotipo@{imprimeGenotipo}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{imprimeGenotipo()}{imprimeGenotipo()}}
+{\footnotesize\ttfamily void imprime\+Genotipo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{x }\end{DoxyParamCaption})}
+
+
+
+Recive un parametro \mbox{\hyperlink{structIndividuo}{Individuo}} al cual se le procede a imprimir todo el genotipo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 414 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{415 \{}
+\DoxyCodeLine{416     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{417  }
+\DoxyCodeLine{418     \textcolor{keywordflow}{for}(i=0; i<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; i++)\{}
+\DoxyCodeLine{419         std::cout << \mbox{\hyperlink{mainServer_8cpp_a6150e0515f7202e2fb518f7206ed97dc}{x}}.genotipo[i] << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{420     \}}
+\DoxyCodeLine{421 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}\label{Genetic_8cpp_a3a9efc4f327061334045716d4cbe40b0}} 
+\index{Genetic.cpp@{Genetic.cpp}!imprimePoblacion@{imprimePoblacion}}
+\index{imprimePoblacion@{imprimePoblacion}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{imprimePoblacion()}{imprimePoblacion()}}
+{\footnotesize\ttfamily void imprime\+Poblacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{pob }\end{DoxyParamCaption})}
+
+
+
+Recibe una poblacion y se encarga de imprimir toda la poblacion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pob} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 397 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{398 \{ }
+\DoxyCodeLine{399     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}}; i++)}
+\DoxyCodeLine{400     \{}
+\DoxyCodeLine{401         \textcolor{keywordflow}{if}(pob[i].genotipo[0] < 16)\{}
+\DoxyCodeLine{402             \mbox{\hyperlink{Genetic_8cpp_aeeb1de7fed73f7a99478f0a08b24aac9}{imprimeGenotipo}}(pob[i]);}
+\DoxyCodeLine{403             std::cout << std::endl;}
+\DoxyCodeLine{404         \}}
+\DoxyCodeLine{405     \}}
+\DoxyCodeLine{406 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_aaabbf3b194c8e6abcf60d94a8573d906}\label{Genetic_8cpp_aaabbf3b194c8e6abcf60d94a8573d906}} 
+\index{Genetic.cpp@{Genetic.cpp}!mainGenetic@{mainGenetic}}
+\index{mainGenetic@{mainGenetic}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{mainGenetic()}{mainGenetic()}}
+{\footnotesize\ttfamily int main\+Genetic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                   \{}
+\DoxyCodeLine{44     srand (time(NULL));}
+\DoxyCodeLine{45     \mbox{\hyperlink{Genetic_8cpp_a24269f09682b1b2f85924ec14f35594d}{AG}}();}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a0118f6c0e1310e37fd7520fa95291088}\label{Genetic_8cpp_a0118f6c0e1310e37fd7520fa95291088}} 
+\index{Genetic.cpp@{Genetic.cpp}!seleccionTorneos@{seleccionTorneos}}
+\index{seleccionTorneos@{seleccionTorneos}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{seleccionTorneos()}{seleccionTorneos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$ seleccion\+Torneos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{poblacion }\end{DoxyParamCaption})}
+
+
+
+Crea un nuevo vector de individuo de una poblacion, seleccionando el mejor entre un combate de dos de estos individuos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poblacion} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Individuo$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 204 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205 \{}
+\DoxyCodeLine{206     \mbox{\hyperlink{structIndividuo}{Individuo}} candidato\_a, candidato\_b;}
+\DoxyCodeLine{207     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{208  }
+\DoxyCodeLine{209     \mbox{\hyperlink{structIndividuo}{Individuo}} * seleccion = (\mbox{\hyperlink{structIndividuo}{Individuo}} *) malloc (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structIndividuo}{Individuo}})*\mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}});}
+\DoxyCodeLine{210  }
+\DoxyCodeLine{211     \textcolor{keywordflow}{for} (i=0; i<\mbox{\hyperlink{Genetic_8cpp_aff3ac3add6b75c98fc0168707e5d5248}{POBLACION}}-\/1; i++)}
+\DoxyCodeLine{212     \{}
+\DoxyCodeLine{213         candidato\_a = poblacion[i];}
+\DoxyCodeLine{214         candidato\_b = poblacion[i + 1];}
+\DoxyCodeLine{215  }
+\DoxyCodeLine{216         \textcolor{keywordflow}{if} (candidato\_a.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}} < candidato\_b.\mbox{\hyperlink{structIndividuo_a188830c98d30751d22a798d4d698fd6e}{aptitud}})}
+\DoxyCodeLine{217             seleccion[i] = candidato\_a;}
+\DoxyCodeLine{218         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{219             seleccion[i] = candidato\_b;}
+\DoxyCodeLine{220     \}}
+\DoxyCodeLine{221  }
+\DoxyCodeLine{222     \textcolor{keywordflow}{return} seleccion;}
+\DoxyCodeLine{223 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a49c9b7aec1f12c2d5adc7d8839d12846}\label{Genetic_8cpp_a49c9b7aec1f12c2d5adc7d8839d12846}} 
+\index{Genetic.cpp@{Genetic.cpp}!sigue@{sigue}}
+\index{sigue@{sigue}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{sigue()}{sigue()}}
+{\footnotesize\ttfamily bool sigue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{best }\end{DoxyParamCaption})}
+
+
+
+Recibe el indivudo best para comparar si su genotipo es el correcto y asi parar el ciclo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em best} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 493 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{493                           \{}
+\DoxyCodeLine{494     \textcolor{keywordtype}{int} cero = 0;}
+\DoxyCodeLine{495     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; i++)\{}
+\DoxyCodeLine{496         \textcolor{keywordflow}{if} (best.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] != i + 1 \&\& cero != 0)}
+\DoxyCodeLine{497         \{}
+\DoxyCodeLine{498             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{499         \}}
+\DoxyCodeLine{500         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(best.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i] != i + 1)\{}
+\DoxyCodeLine{501             cero++;}
+\DoxyCodeLine{502         \}}
+\DoxyCodeLine{503     \}}
+\DoxyCodeLine{504     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{505 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_a10d7a698fcd0660b771e6be236f32be4}\label{Genetic_8cpp_a10d7a698fcd0660b771e6be236f32be4}} 
+\index{Genetic.cpp@{Genetic.cpp}!to\_str@{to\_str}}
+\index{to\_str@{to\_str}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{to\_str()}{to\_str()}}
+{\footnotesize\ttfamily std\+::string to\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}}}]{indi }\end{DoxyParamCaption})}
+
+
+
+Definition at line 423 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{423                                 \{}
+\DoxyCodeLine{424     std::string texto = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{425     }
+\DoxyCodeLine{426     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; i++)\{}
+\DoxyCodeLine{427             texto += std::to\_string(indi.\mbox{\hyperlink{structIndividuo_a95558d6ecbbc6aebed64b1f9e28765fe}{genotipo}}[i]) + \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{428         \}}
+\DoxyCodeLine{429     \textcolor{keywordflow}{return} texto;}
+\DoxyCodeLine{430 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Genetic_8cpp_ac57052ffdc5162d37f74d7fd97837d60}\label{Genetic_8cpp_ac57052ffdc5162d37f74d7fd97837d60}} 
+\index{Genetic.cpp@{Genetic.cpp}!to\_strPo@{to\_strPo}}
+\index{to\_strPo@{to\_strPo}!Genetic.cpp@{Genetic.cpp}}
+\doxysubsubsection{\texorpdfstring{to\_strPo()}{to\_strPo()}}
+{\footnotesize\ttfamily std\+::string to\+\_\+str\+Po (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIndividuo}{Individuo}} $\ast$}]{pobla }\end{DoxyParamCaption})}
+
+
+
+Definition at line 432 of file Genetic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{432                                      \{}
+\DoxyCodeLine{433     std::string texto = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{434     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<4; j++)\{}
+\DoxyCodeLine{435         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{Genetic_8cpp_ad9b5136399462372d06bcaac8f1f5d61}{LONG\_COD}}; i++)\{}
+\DoxyCodeLine{436                 texto += std::to\_string(pobla[j].genotipo[i]) + \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{437             \}}
+\DoxyCodeLine{438             texto += \textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{439         \}}
+\DoxyCodeLine{440     \textcolor{keywordflow}{return} texto;}
+\DoxyCodeLine{441 \}}
+
+\end{DoxyCode}

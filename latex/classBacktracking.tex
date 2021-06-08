@@ -1,0 +1,249 @@
+\hypertarget{classBacktracking}{}\doxysection{Backtracking Class Reference}
+\label{classBacktracking}\index{Backtracking@{Backtracking}}
+
+
+{\ttfamily \#include $<$Backtracking.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBacktracking_ac751fb4287bd47725ac89822cb988344}{Backtracking}} (int maze\mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]}, int start\+X\+\_\+, int start\+Y\+\_\+, int goal\+X\+\_\+, int goal\+Y\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor de clase \mbox{\hyperlink{classBacktracking}{Backtracking}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBacktracking_aa4d62c3a5da19ed5501d833d8e458f4d}{find\+Path}} (int maze\mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em funcion de inicio \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBacktracking_a1bb8576db02f2c934c3879b925607ff6}{print\+Sol}} (int \mbox{\hyperlink{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}{sol}}\mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em imprime la solucion \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBacktracking_a1743df390e75ea208a442d66b747a04e}{my\+Maze}} \mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]}
+\item 
+int \mbox{\hyperlink{classBacktracking_a7c814ce6d7303d594b24967e012a371a}{startX}}
+\item 
+int \mbox{\hyperlink{classBacktracking_acc71933f5f0c91c7554f548730bdf028}{startY}}
+\item 
+int \mbox{\hyperlink{classBacktracking_aaad075227f284ba3504a6f7616e5b9e3}{goalX}}
+\item 
+int \mbox{\hyperlink{classBacktracking_ad0e8a8148f79a28599dc999bae6f9aeb}{goalY}}
+\item 
+int \mbox{\hyperlink{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}{sol}} \mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}} = 10
+\item 
+static const int \mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}} = 15
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file Backtracking.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBacktracking_ac751fb4287bd47725ac89822cb988344}\label{classBacktracking_ac751fb4287bd47725ac89822cb988344}} 
+\index{Backtracking@{Backtracking}!Backtracking@{Backtracking}}
+\index{Backtracking@{Backtracking}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{Backtracking()}{Backtracking()}}
+{\footnotesize\ttfamily Backtracking\+::\+Backtracking (\begin{DoxyParamCaption}\item[{int}]{maze\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]},  }\item[{int}]{start\+X\+\_\+,  }\item[{int}]{start\+Y\+\_\+,  }\item[{int}]{goal\+X\+\_\+,  }\item[{int}]{goal\+Y\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Constructor de clase \mbox{\hyperlink{classBacktracking}{Backtracking}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maze} & \\
+\hline
+{\em start\+X\+\_\+} & \\
+\hline
+{\em start\+Y\+\_\+} & \\
+\hline
+{\em goal\+X\+\_\+} & \\
+\hline
+{\em goal\+Y\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                                                                                            \{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}; i++) \{}
+\DoxyCodeLine{12         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}; j++) \{}
+\DoxyCodeLine{13             \mbox{\hyperlink{classBacktracking_a1743df390e75ea208a442d66b747a04e}{myMaze}}[i][j] = maze[i][j];}
+\DoxyCodeLine{14         \}}
+\DoxyCodeLine{15     \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < \mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}; k++) \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < \mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}; l++) \{}
+\DoxyCodeLine{19             \mbox{\hyperlink{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}{sol}}[k][l] = 0;}
+\DoxyCodeLine{20         \}}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22     \mbox{\hyperlink{classBacktracking_a7c814ce6d7303d594b24967e012a371a}{startX}} = startX\_;}
+\DoxyCodeLine{23     \mbox{\hyperlink{classBacktracking_acc71933f5f0c91c7554f548730bdf028}{startY}} = startY\_;}
+\DoxyCodeLine{24     \mbox{\hyperlink{classBacktracking_aaad075227f284ba3504a6f7616e5b9e3}{goalX}} = goalX\_;}
+\DoxyCodeLine{25     \mbox{\hyperlink{classBacktracking_ad0e8a8148f79a28599dc999bae6f9aeb}{goalY}} = goalY\_;}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBacktracking_aa4d62c3a5da19ed5501d833d8e458f4d}\label{classBacktracking_aa4d62c3a5da19ed5501d833d8e458f4d}} 
+\index{Backtracking@{Backtracking}!findPath@{findPath}}
+\index{findPath@{findPath}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{findPath()}{findPath()}}
+{\footnotesize\ttfamily bool Backtracking\+::find\+Path (\begin{DoxyParamCaption}\item[{int}]{maze\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+funcion de inicio 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maze} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool segun se encuentre o no un camino 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                          \{}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} (!solveUtil(maze, \mbox{\hyperlink{classBacktracking_a7c814ce6d7303d594b24967e012a371a}{startX}}, \mbox{\hyperlink{classBacktracking_acc71933f5f0c91c7554f548730bdf028}{startY}})) \{}
+\DoxyCodeLine{44         std::cout << \textcolor{stringliteral}{"{}No hay solucion"{}};}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{46     \} \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBacktracking_a1bb8576db02f2c934c3879b925607ff6}\label{classBacktracking_a1bb8576db02f2c934c3879b925607ff6}} 
+\index{Backtracking@{Backtracking}!printSol@{printSol}}
+\index{printSol@{printSol}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{printSol()}{printSol()}}
+{\footnotesize\ttfamily void Backtracking\+::print\+Sol (\begin{DoxyParamCaption}\item[{int}]{sol\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+imprime la solucion 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sol} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                         \{}
+\DoxyCodeLine{29     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}; i++)\{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j<\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}; j++)}
+\DoxyCodeLine{31             printf(\textcolor{stringliteral}{"{} \%d "{}}, \mbox{\hyperlink{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}{sol}}[i][j]);}
+\DoxyCodeLine{32         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBacktracking_aaad075227f284ba3504a6f7616e5b9e3}\label{classBacktracking_aaad075227f284ba3504a6f7616e5b9e3}} 
+\index{Backtracking@{Backtracking}!goalX@{goalX}}
+\index{goalX@{goalX}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{goalX}{goalX}}
+{\footnotesize\ttfamily int Backtracking\+::goalX}
+
+
+
+Definition at line 34 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_ad0e8a8148f79a28599dc999bae6f9aeb}\label{classBacktracking_ad0e8a8148f79a28599dc999bae6f9aeb}} 
+\index{Backtracking@{Backtracking}!goalY@{goalY}}
+\index{goalY@{goalY}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{goalY}{goalY}}
+{\footnotesize\ttfamily int Backtracking\+::goalY}
+
+
+
+Definition at line 35 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_a37e12670990fe63aa7732543e06f69f1}\label{classBacktracking_a37e12670990fe63aa7732543e06f69f1}} 
+\index{Backtracking@{Backtracking}!M@{M}}
+\index{M@{M}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily const int Backtracking\+::M = 15\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 19 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_a1743df390e75ea208a442d66b747a04e}\label{classBacktracking_a1743df390e75ea208a442d66b747a04e}} 
+\index{Backtracking@{Backtracking}!myMaze@{myMaze}}
+\index{myMaze@{myMaze}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{myMaze}{myMaze}}
+{\footnotesize\ttfamily int Backtracking\+::my\+Maze\mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]}}
+
+
+
+Definition at line 31 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}\label{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}} 
+\index{Backtracking@{Backtracking}!N@{N}}
+\index{N@{N}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily const int Backtracking\+::N = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 18 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}\label{classBacktracking_ab01304d4fcfdd0f57e674881b3277ece}} 
+\index{Backtracking@{Backtracking}!sol@{sol}}
+\index{sol@{sol}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{sol}{sol}}
+{\footnotesize\ttfamily int Backtracking\+::sol\mbox{[}\mbox{\hyperlink{classBacktracking_aa27fb10d821104cb73d954384b5f9b1b}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{classBacktracking_a37e12670990fe63aa7732543e06f69f1}{M}}\mbox{]}}
+
+
+
+Definition at line 36 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_a7c814ce6d7303d594b24967e012a371a}\label{classBacktracking_a7c814ce6d7303d594b24967e012a371a}} 
+\index{Backtracking@{Backtracking}!startX@{startX}}
+\index{startX@{startX}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{startX}{startX}}
+{\footnotesize\ttfamily int Backtracking\+::startX}
+
+
+
+Definition at line 32 of file Backtracking.\+h.
+
+\mbox{\Hypertarget{classBacktracking_acc71933f5f0c91c7554f548730bdf028}\label{classBacktracking_acc71933f5f0c91c7554f548730bdf028}} 
+\index{Backtracking@{Backtracking}!startY@{startY}}
+\index{startY@{startY}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{startY}{startY}}
+{\footnotesize\ttfamily int Backtracking\+::startY}
+
+
+
+Definition at line 33 of file Backtracking.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Backtraking/\mbox{\hyperlink{Backtracking_8h}{Backtracking.\+h}}\item 
+src/\+Backtraking/\mbox{\hyperlink{Backtracking_8cpp}{Backtracking.\+cpp}}\end{DoxyCompactItemize}
